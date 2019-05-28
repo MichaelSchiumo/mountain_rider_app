@@ -1,15 +1,30 @@
 class TrailsController < ApplicationController
 
-  def create
-    @trail = Trail.new(trail_params)
-    @rider = Rider.find(trail_params[:rider_id])
-    @mountain = Mountain.find(trail_params[:mountain_id])
-    redirect_to rider_path(@rider)
+  def new
+    @trail = Trail.new(mountain_id: params[:mountain_id])
   end
+
+  def index
+    if params[:mountain_id]
+      mountain = Mountain.find_by(id: params[:mountain_id])
+      @trails = mountain.trails
+    else
+      @trails = Trail.all
+    end
+  end
+
+  def create
+    @mountain = Mountain.find(params[:mountain_id])
+    @trail = @mountain.trails.build(trail_params)
+    @trail.rider = current_user
+    redirect_to trail_path(@trail)
+  end
+
+   
 
   private
 
   def trail_params
-    params.permit(:rider_id, :mountain_id)
-  end  
+    params.require(:trail).permit(:name)
+  end
 end
