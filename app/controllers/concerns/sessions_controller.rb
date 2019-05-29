@@ -2,6 +2,9 @@ class SessionsController < ApplicationController
 
 
   def welcome
+  end
+
+  def home
   end  
 
   def new

@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :trails, only: [:new, :create, :index]
   end
 
-  root 'sessions#welcome'
+root 'sessions#welcome'
 
   # home_path
  get '/home' => 'sessions#home'
@@ -14,11 +14,11 @@ Rails.application.routes.draw do
  get '/login' => 'sessions#new'
 
  # create_path
- post '/login' => 'sessions#login'
+ post '/login' => 'sessions#create'
 
  # logout_path
  get '/logout' => 'sessions#logout'
- 
+
   resources :riders
   resources :sessions
   resources :trails, only: [:update, :edit, :destroy]
