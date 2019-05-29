@@ -1,5 +1,9 @@
 class SessionsController < ApplicationController
 
+
+  def welcome
+  end  
+
   def new
     if current_user
       redirect_to '/'

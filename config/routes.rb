@@ -5,7 +5,20 @@ Rails.application.routes.draw do
     resources :trails, only: [:new, :create, :index]
   end
 
-  root "static_pages#home"
+  root 'sessions#welcome'
+
+  # home_path
+ get '/home' => 'sessions#home'
+
+ # login_path
+ get '/login' => 'sessions#new'
+
+ # create_path
+ post '/login' => 'sessions#login'
+
+ # logout_path
+ get '/logout' => 'sessions#logout'
+ 
   resources :riders
   resources :sessions
   resources :trails, only: [:update, :edit, :destroy]
