@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_29_172300) do
+ActiveRecord::Schema.define(version: 2019_05_29_172354) do
 
   create_table "mountains", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -32,6 +32,7 @@ ActiveRecord::Schema.define(version: 2019_05_29_172300) do
     t.string "password_digest"
     t.string "uid"
     t.string "email"
+    t.string "image"
   end
 
   create_table "trails", force: :cascade do |t|
