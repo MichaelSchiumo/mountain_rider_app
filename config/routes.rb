@@ -19,6 +19,9 @@ root 'sessions#welcome'
  # logout_path
  get '/logout' => 'sessions#logout'
 
+ # ominauth through facebook
+ get '/auth/facebook/callback' => 'sessions#create'
+
   resources :riders
   resources :sessions
   resources :trails, only: [:update, :edit, :destroy]
