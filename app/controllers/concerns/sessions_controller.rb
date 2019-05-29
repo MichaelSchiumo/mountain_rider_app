@@ -5,7 +5,7 @@ class SessionsController < ApplicationController
   end
 
   def home
-  end  
+  end
 
   def new
     if current_user
@@ -15,14 +15,14 @@ class SessionsController < ApplicationController
     end
   end
 
-  def create
+  def login
     @rider = Rider.find_by(:name => params[:rider][:name])
     if @rider && @rider.authenticate(params[:rider][:password])
       @rider.save
       session[:rider_id] = rider.id
       redirect_to rider_path(rider)
     else
-      redirect_to sign_up_path
+      redirect_to login_path
     end
   end
 

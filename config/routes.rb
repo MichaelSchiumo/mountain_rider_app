@@ -14,7 +14,7 @@ root 'sessions#welcome'
  get '/login' => 'sessions#new'
 
  # create_path
- post '/login' => 'sessions#create'
+ post '/login' => 'sessions#login'
 
  # logout_path
  get '/logout' => 'sessions#logout'
