@@ -10,7 +10,7 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_29_155211) do
+ActiveRecord::Schema.define(version: 2019_05_29_172130) do
 
   create_table "mountains", force: :cascade do |t|
     t.datetime "created_at", null: false
@@ -30,6 +30,7 @@ ActiveRecord::Schema.define(version: 2019_05_29_155211) do
     t.integer "ticket_number"
     t.boolean "admin", default: false
     t.string "password_digest"
+    t.string "uid"
   end
 
   create_table "trails", force: :cascade do |t|
