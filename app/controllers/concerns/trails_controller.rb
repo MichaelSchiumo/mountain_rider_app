@@ -17,10 +17,22 @@ class TrailsController < ApplicationController
     @mountain = Mountain.find(params[:mountain_id])
     @trail = @mountain.trails.build(trail_params)
     @trail.rider = current_user
+    @trail.save
     redirect_to trail_path(@trail)
   end
 
-   
+  def show
+    @trail = Trail.find_by(id: params[:id])
+  end
+
+  def update
+    @trail.update(trail_params)
+    if @trail.save
+      redirect_to trail_path(@trail)
+    else
+      render :edit
+    end    
+  end
 
   private
 
