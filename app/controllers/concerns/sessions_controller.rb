@@ -33,12 +33,22 @@ class SessionsController < ApplicationController
     end
   end
 
-  def create
-    @user = User.find_or_create_by(:uid => auth['uid']) do |u|
+  def google_oauth2_callback
+    binding.pry
+    @rider = Rider.find_or_create_by(uid: auth['uid']) do |u|
       u.name = auth['info']['name']
+      u.email = auth['info']['email']
+      u.image = auth['info']['image']
     end
-    session[:user_id] = @user.id
-    render 'welcome/home'
+
+    session[:rider_id] = @rider.id
+
+    #find the correct path
+    #riders create and sessions create route to the same place (trails index)
+    redirect_to trails_index
+  end
+
+  def create
   end
 
   private
