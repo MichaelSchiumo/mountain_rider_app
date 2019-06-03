@@ -1,0 +1,10 @@
+<%= form_for @mountain do |f| %>
+<%= f.label :name %>
+<%= f.text_field :name %><br />
+<%= f.label :difficulty %>
+<%= f.number_field :difficulty %><br />
+<%= f.label :rank %>
+<%= f.number_field :rank %><br />
+<br />
+<%= f.submit %>
+<% end %>
