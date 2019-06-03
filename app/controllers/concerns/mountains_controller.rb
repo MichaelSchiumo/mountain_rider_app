@@ -36,6 +36,12 @@ class MountainsController < ApplicationController
     @mountain.destroy
     flash[:message] = "Mountain successfully destroyed."
     redirect_to mountain_path
+  end
+
+  private
+
+  def mountain_params
+    require(:mountain).permit(:name, :difficulty, :rank)
   end  
 
 end
