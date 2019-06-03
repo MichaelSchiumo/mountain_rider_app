@@ -24,6 +24,18 @@ class MountainsController < ApplicationController
   end
 
   def update
-    @mountain.update(mountain_params)         
+    @mountain.update(mountain_params)
+    if mountain.save
+      redirect_to mountain_path(@mountain)
+    else
+      render :edit
+    end
+  end
+
+  def destroy
+    @mountain.destroy
+    flash[:message] = "Mountain successfully destroyed."
+    redirect_to mountain_path
+  end  
 
 end
