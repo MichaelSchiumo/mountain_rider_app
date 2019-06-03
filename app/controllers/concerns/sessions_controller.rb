@@ -39,17 +39,19 @@ class SessionsController < ApplicationController
       u.name = auth['info']['name']
       u.email = auth['info']['email']
       u.image = auth['info']['image']
-    end
-
-    session[:rider_id] = @rider.id
-
+  end
+    if @rider.save
+      session[:rider_id] = @rider.id
+      redirect_to home_path
+    else
+      redirect_to root_path
     #find the correct path
     #riders create and sessions create route to the same place (trails index)
-    redirect_to trails_index
+    # redirect_to trails_index
   end
 
-  def create
-  end
+  # def create
+  # end
 
   private
 
