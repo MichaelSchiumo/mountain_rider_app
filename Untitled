@@ -1,0 +1,3 @@
+# Log in and logout functionality
+# scope method (chainable)
+# display errors in all forms (activerecord) (display full errors message)

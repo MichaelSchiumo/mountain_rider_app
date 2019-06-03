@@ -1,4 +1,5 @@
 class MountainsController < ApplicationController
+  before_action :find_mountain, only: [:show, :edit, :update]
 
   def show
   end
@@ -25,7 +26,7 @@ class MountainsController < ApplicationController
 
   def update
     @mountain.update(mountain_params)
-    if mountain.save
+    if @mountain.save
       redirect_to mountain_path(@mountain)
     else
       render :edit
@@ -34,7 +35,7 @@ class MountainsController < ApplicationController
 
   def destroy
     @mountain.destroy
-    flash[:message] = "Mountain successfully destroyed."
+    flash[:message] = "Mountain successfully deleted."
     redirect_to mountain_path
   end
 
@@ -42,6 +43,10 @@ class MountainsController < ApplicationController
 
   def mountain_params
     params.require(:mountain).permit(:name, :difficulty, :rank)
+  end
+
+  def find_mountain
+    @mountain = Mountain.find_by(id: params[:id])
   end
 
 end

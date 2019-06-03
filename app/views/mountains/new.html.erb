@@ -1,19 +1,12 @@
 <%= form_for(@mountain) do |f| %>
   <%= f.label :name %>
-  <%= f.text_field :name %>
+  <%= f.text_field :name %><br /><br />
   <%= f.label :difficulty %>
-  <%= f.number_field :difficulty %>
+  <%= f.number_field :difficulty %><br /><br />
   <%= f.label :rank %>
-  <%= f.number_field :rank %>
+  <%= f.number_field :rank %><br /><br />
 
-  <ul>
-	<%= f.nested_fields_for :trails do |trails_form| %>
-		<li>
-			<%= trails_form.number_field :mountain_id %>
-      <%= trails_form.number_field :rider_id %>
-		</li>
-	<% end %>
-	</ul>
+
 
 	<%= f.submit "Create Mountain" %>
 <% end %>
