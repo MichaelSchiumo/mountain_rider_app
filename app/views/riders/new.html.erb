@@ -1,12 +1,15 @@
-<h1>Welcome to Mountain Rider</h1>
+<h1>Sign Up</h1>
 
-
-
-<% if session[:rider_id] %>
-  <h1><%= @rider.name %></h1>
-  <h2>Email: <%= @rider.email %></h2>
-  <h2>Google UID: <%= @rider.uid %></h2>
-  <img src="<%= @rider.image %>">
-<% else %>
-  <%= link_to('Log in with Google!', '/auth/google_oauth2') %>
+<%= form_for @user do |f| %>
+  <%= f.label :name %>
+  <%= f.text_field :name %>
+  <%= f.label :password %>
+  <%= f.password_field :password %>
+  <%= f.label :experience %>
+  <%= f.number_field :experience %>
+  <%= f.label :stance %>
+  <%= f.text_field :stance %>
+  <%= f.label :ticket_number %>
+  <%= f.number_field :ticket_number %>
+  <%= f.submit %>
 <% end %>

@@ -1,0 +1,7 @@
+1. riders new form (signup) empty argument
+2. _form (for mountains) @mountain or just mountain?
+3. scope method (order mountains by rank)
+4. google omniauth
+5. login functionality
+6. user-submitted attribute
+7. fields_with_errors class

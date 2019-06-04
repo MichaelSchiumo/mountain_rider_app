@@ -16,13 +16,14 @@ class SessionsController < ApplicationController
   end
 
   def login
+    binding.pry
     @rider = Rider.find_by(:name => params[:rider][:name])
     if @rider && @rider.authenticate(params[:rider][:password])
       @rider.save
       session[:rider_id] = rider.id
-      redirect_to rider_path(rider)
+      redirect_to mountain_path(mountain)
     else
-      redirect_to login_path
+      render "riders/new"
     end
   end
 
@@ -34,7 +35,7 @@ class SessionsController < ApplicationController
   end
 
   def google_oauth2_callback
-    binding.pry
+
     @rider = Rider.find_or_create_by(uid: auth['uid']) do |u|
       u.name = auth['info']['name']
       u.email = auth['info']['email']

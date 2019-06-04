@@ -1,5 +1,7 @@
 <h1>Mountains</h1>
 <ul>
   <% @mountains.each do |mountain| %>
-  <li><%= link_to "Check Out Mount #{mountain.name}, mountain_path(mountain)" %></li>
+  <li><%= link_to "Check Out Mount #{mountain.name}", mountain_path(mountain) %></li>
+
+  <%= link_to "Edit Mountain", edit_mountain_path(mountain) %>
   <% end %>
