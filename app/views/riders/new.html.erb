@@ -1,15 +1,3 @@
 <h1>Sign Up</h1>
 
-<%= form_for @user do |f| %>
-  <%= f.label :name %>
-  <%= f.text_field :name %>
-  <%= f.label :password %>
-  <%= f.password_field :password %>
-  <%= f.label :experience %>
-  <%= f.number_field :experience %>
-  <%= f.label :stance %>
-  <%= f.text_field :stance %>
-  <%= f.label :ticket_number %>
-  <%= f.number_field :ticket_number %>
-  <%= f.submit %>
-<% end %>
+<%= render partial: 'form', locals: {rider: @rider} %>

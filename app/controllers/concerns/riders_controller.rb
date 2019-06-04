@@ -5,10 +5,10 @@ class RidersController < ApplicationController
   end
 
   def create
-    rider = Rider.create(rider_params)
-    if rider.valid?
-      session[:id] = rider.id
-      redirect_to rider_path(rider)
+    @rider = Rider.new(rider_params)
+    if @rider.save
+      session[:id] = @rider.id
+      redirect_to rider_path(@rider)
     else
       render :new
     end
@@ -23,5 +23,5 @@ class RidersController < ApplicationController
 
   def rider_params
     params.require(:rider).permit(:name, :password, :experience, :stance, :ticket_number, :admin)
-  end           
+  end
 end
