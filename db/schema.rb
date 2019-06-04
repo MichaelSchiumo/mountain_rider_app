@@ -10,14 +10,15 @@
 #
 # It's strongly recommended that you check this file into your version control system.
 
-ActiveRecord::Schema.define(version: 2019_05_29_172354) do
+ActiveRecord::Schema.define(version: 2019_06_04_211505) do
 
   create_table "mountains", force: :cascade do |t|
     t.datetime "created_at", null: false
     t.datetime "updated_at", null: false
     t.string "name"
     t.integer "difficulty"
-    t.integer "rank"
+    t.integer "rank", default: 0
+    t.integer "top_rank"
   end
 
   create_table "riders", force: :cascade do |t|
