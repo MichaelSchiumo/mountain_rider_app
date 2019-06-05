@@ -51,6 +51,15 @@ class SessionsController < ApplicationController
     end
   end
 
+  def logout
+    if session[:rider_id]
+      session.clear
+      redirect_to root_path
+    else
+      redirect_to home_path
+    end
+  end      
+
   # def create
   # end
 
