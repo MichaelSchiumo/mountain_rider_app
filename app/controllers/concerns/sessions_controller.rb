@@ -16,7 +16,6 @@ class SessionsController < ApplicationController
   end
 
   def login
-    binding.pry
     @rider = Rider.find_by(:name => params[:rider][:name])
     if @rider && @rider.authenticate(params[:rider][:password])
       @rider.save
