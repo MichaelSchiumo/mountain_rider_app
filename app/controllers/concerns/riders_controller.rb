@@ -18,7 +18,6 @@ class RidersController < ApplicationController
     @rider = Rider.find_by(:id => params[:id])
   end
 
-
   private
 
   def rider_params

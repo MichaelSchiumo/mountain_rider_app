@@ -11,3 +11,13 @@
 
 10. trails, add rank
   -in trails create, do mountain.update(rank: mountain.rank + 1)
+
+
+
+List of errors
+
+1. Trail create action does not route properly
+2. authenticate error for login
+3. google omniauth not working
+4. log in functionality does not work
+5. fields_with_errors class

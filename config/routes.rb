@@ -20,11 +20,11 @@ root 'sessions#welcome'
  get '/logout' => 'sessions#logout'
 
  # ominauth through facebook
- get '/auth/google_oauth2/callback' => 'sessions#google_oauth2_callback'
+ get '/auth/google_oauth2/callback' => 'sessions#google'
 
 
 
   resources :riders
   resources :sessions
-  resources :trails, only: [:update, :edit, :destroy, :index]
+  resources :trails, only: [:update, :edit, :destroy, :index, :create]
 end
