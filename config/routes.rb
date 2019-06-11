@@ -2,7 +2,7 @@ Rails.application.routes.draw do
   # For details on the DSL available within this file, see http://guides.rubyonrails.org/routing.html
 
   resources :mountains do
-    resources :trails, only: [:new, :create, :index]
+    resources :trails, only: [:new, :create, :index, :show]
   end
 
 root 'sessions#welcome'
@@ -26,5 +26,5 @@ root 'sessions#welcome'
 
   resources :riders
   resources :sessions
-  resources :trails, only: [:update, :edit, :destroy, :index, :create]
+  resources :trails, only: [:update, :edit, :destroy, :index]
 end

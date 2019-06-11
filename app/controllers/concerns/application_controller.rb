@@ -2,7 +2,7 @@ class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
   helper_method :current_user, :require_login, :admin_only
 
-  def current_user
+  def current_rider
     if session[:rider_id].present?
       rider = Rider.find_by(:id => session[:rider_id])
     end

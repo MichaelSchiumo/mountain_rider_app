@@ -14,7 +14,9 @@ class TrailsController < ApplicationController
   end
 
   def create
-    @trail = Trail.new(trail_params)
+    binding.pry
+    @trail = current_rider.trails.build(trail_params)
+    @trail.mountain_id = params[:mountain_id]
     if @trail.save
       redirect_to trail_path(@trail)
     else
@@ -41,7 +43,7 @@ class TrailsController < ApplicationController
 
   def edit
     @trail = Trail.find_by(id: params[:id])
-  end  
+  end
 
   def show
     @trail = Trail.find_by(id: params[:id])
@@ -60,6 +62,6 @@ class TrailsController < ApplicationController
   private
 
   def trail_params
-    params.require(:trail).permit(:name, :id)
+    params.require(:trail).permit(:name)
   end
 end
