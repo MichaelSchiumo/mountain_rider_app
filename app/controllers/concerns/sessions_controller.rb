@@ -17,29 +17,23 @@ class SessionsController < ApplicationController
 
   def login
     @rider = Rider.find_by(:name => params[:rider][:name])
-    binding.pry
     if @rider && @rider.authenticate(params[:rider][:password])
-      @rider.save
       session[:rider_id] = @rider.id
-      redirect_to mountain_path(mountain)
+      redirect_to mountains_path
     else
       render :new
     end
   end
 
   def logout
-    if current_rider
-      session.delete :rider_id
-      redirect_to root_path
-    end
+    session.delete :rider_id
+    redirect_to root_path
   end
 
   def google
 
     @rider = Rider.find_or_create_by(uid: auth['uid']) do |u|
       u.name = auth['info']['name']
-      u.email = auth['info']['email']
-      u.image = auth['info']['image']
     end
     if @rider.save
       session[:rider_id] = @rider.id
