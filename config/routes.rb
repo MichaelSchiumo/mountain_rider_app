@@ -5,7 +5,7 @@ Rails.application.routes.draw do
     resources :trails, only: [:new, :create, :index, :show]
   end
 
-root 'sessions#welcome'
+root 'sessions#home'
 
   # home_path
  get '/home' => 'sessions#home'

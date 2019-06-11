@@ -2,6 +2,7 @@ class SessionsController < ApplicationController
 
 
   def welcome
+
   end
 
   def home
@@ -35,15 +36,12 @@ class SessionsController < ApplicationController
     @rider = Rider.find_or_create_by(uid: auth['uid']) do |u|
       u.name = auth['info']['name']
     end
-    if @rider.save
       session[:rider_id] = @rider.id
-      redirect_to home_path
-    else
-      redirect_to root_path
+      redirect_to mountains_path
+
     #find the correct path
     #riders create and sessions create route to the same place (trails index)
     # redirect_to trails_index
-    end
   end
 
   def logout

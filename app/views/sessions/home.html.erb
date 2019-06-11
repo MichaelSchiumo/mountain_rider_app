@@ -1,12 +1,10 @@
-<h1>Welcome to Mountain Rider</h1>
+<h1>Welcome to Mountain Rider, </h1>
 
 
 
-<% if session[:rider_id] %>
-  <h1><%= @rider.name %></h1>
-  <h2>Email: <%= @rider.email %></h2>
-  <h2>Google UID: <%= @rider.uid %></h2>
-  <img src="<%= @rider.image %>">
+<% if current_rider %>
+  <h1><%= current_rider.name %></h1>
+ <h2><%= "Google UID: #{current_rider.uid}" if current_rider.uid %></h2>
 <% else %>
   <%= link_to('Log in with Google!', '/auth/google_oauth2') %><br /></br>
 

@@ -1,6 +1,6 @@
 class ApplicationController < ActionController::Base
   protect_from_forgery with: :exception
-  helper_method :current_user, :require_login, :admin_only
+  helper_method :current_rider, :require_login, :admin_only
 
   def current_rider
     if session[:rider_id].present?
