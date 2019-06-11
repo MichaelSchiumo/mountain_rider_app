@@ -7,7 +7,7 @@ class RidersController < ApplicationController
   def create
     @rider = Rider.new(rider_params)
     if @rider.save
-      session[:id] = @rider.id
+      session[:rider_id] = @rider.id
       redirect_to rider_path(@rider)
     else
       render :new

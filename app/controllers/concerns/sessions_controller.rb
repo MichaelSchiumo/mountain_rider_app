@@ -8,7 +8,7 @@ class SessionsController < ApplicationController
   end
 
   def new
-    if current_user
+    if current_rider
       redirect_to '/'
     else
       @rider = Rider.new
@@ -17,6 +17,7 @@ class SessionsController < ApplicationController
 
   def login
     @rider = Rider.find_by(:name => params[:rider][:name])
+    binding.pry
     if @rider && @rider.authenticate(params[:rider][:password])
       @rider.save
       session[:rider_id] = @rider.id
@@ -27,7 +28,7 @@ class SessionsController < ApplicationController
   end
 
   def destroy
-    if current_user
+    if current_rider
       session.delete :rider_id
       redirect_to root_path
     end
