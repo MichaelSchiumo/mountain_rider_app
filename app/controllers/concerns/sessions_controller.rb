@@ -27,7 +27,7 @@ class SessionsController < ApplicationController
     end
   end
 
-  def destroy
+  def logout
     if current_rider
       session.delete :rider_id
       redirect_to root_path

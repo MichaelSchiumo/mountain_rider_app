@@ -17,7 +17,7 @@ root 'sessions#welcome'
  post '/login' => 'sessions#login'
 
  # logout_path
- get '/logout' => 'sessions#logout'
+ delete '/logout' => 'sessions#logout'
 
  # ominauth through facebook
  get '/auth/google_oauth2/callback' => 'sessions#google'
@@ -25,6 +25,5 @@ root 'sessions#welcome'
 
 
   resources :riders
-  resources :sessions
   resources :trails, only: [:update, :edit, :destroy, :index]
 end
